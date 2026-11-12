@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merged && github.event.pull_request.base.ref || github.sha }}
 
       - name: Get response templates
         uses: actions/checkout@v4
